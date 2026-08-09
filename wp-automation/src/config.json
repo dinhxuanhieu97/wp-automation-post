@@ -1,0 +1,181 @@
+{
+  "site": {
+    "base_url": "https://dienmaykimbien.com.vn",
+    "wp_api_base": "https://dienmaykimbien.com.vn/wp-json/wp/v2",
+    "wp_admin_url": "https://dienmaykimbien.com.vn/wp-admin",
+    "sitemap_index": "https://dienmaykimbien.com.vn/sitemap_index.xml",
+    "seo_plugin": "rank_math",
+    "default_post_status": "draft",
+    "language": "vi",
+    "geo": "VN",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "publishing": {
+    "posts_per_category_per_day": 5,
+    "golden_hours": [
+      "06:30",
+      "09:00",
+      "11:30",
+      "15:00",
+      "20:00"
+    ],
+    "min_seo_score_to_publish": 80,
+    "publish_if_green": true,
+    "fallback_status_if_not_green": "draft"
+  },
+  "categories": [
+    {
+      "slug": "thiet-bi-dien",
+      "name": "Thiết Bị Điện",
+      "wp_category_id": 1,
+      "seed_keywords": [
+        "scr",
+        "cp điện",
+        "aptomat schneider",
+        "aptomat ls",
+        "biến tần",
+        "công tơ điện",
+        "đèn led âm trần",
+        "máy biến áp",
+        "ổn áp",
+        "máy phát điện"
+      ],
+      "trending_hooks": [
+        "mất điện mùa nắng nóng",
+        "tiết kiệm điện sản xuất",
+        "an toàn điện nhà xưởng"
+      ]
+    },
+    {
+      "slug": "co-khi",
+      "name": "Cơ Khí",
+      "wp_category_id": 32,
+      "seed_keywords": [
+        "máy nén khí",
+        "máy hàn",
+        "máy bơm tăng áp",
+        "máy tiện",
+        "máy phay",
+        "máy cắt kim loại"
+      ],
+      "trending_hooks": [
+        "nâng cấp xưởng cơ khí",
+        "gia công chính xác",
+        "đầu tư máy móc đầu năm"
+      ]
+    },
+    {
+      "slug": "thiet-bi-cong-nghiep",
+      "name": "Thiết Bị Công Nghiệp",
+      "wp_category_id": 31,
+      "seed_keywords": [
+        "xe nâng",
+        "pa lăng",
+        "băng tải",
+        "máy bơm công nghiệp",
+        "cân điện tử công nghiệp",
+        "máy rửa xe công nghiệp"
+      ],
+      "trending_hooks": [
+        "mở rộng nhà máy",
+        "tự động hóa sản xuất",
+        "tối ưu vận hành kho"
+      ]
+    },
+    {
+      "slug": "bao-ho-lao-dong",
+      "name": "Bảo hộ lao động",
+      "wp_category_id": 33,
+      "seed_keywords": [
+        "giày bảo hộ",
+        "găng tay bảo hộ",
+        "mũ bảo hộ",
+        "kính bảo hộ",
+        "quần áo bảo hộ",
+        "dây đai an toàn"
+      ],
+      "trending_hooks": [
+        "an toàn lao động",
+        "kiểm tra an toàn công trường",
+        "trang bị bảo hộ mùa mưa"
+      ]
+    },
+    {
+      "slug": "nong-nghiep",
+      "name": "Nông Nghiệp",
+      "wp_category_id": 63,
+      "seed_keywords": [
+        "máy cắt cỏ",
+        "máy phun thuốc",
+        "máy bơm nước nông nghiệp",
+        "máy xới đất",
+        "máy gặt",
+        "nhà lưới nông nghiệp"
+      ],
+      "trending_hooks": [
+        "vào vụ mùa",
+        "cơ giới hóa nông nghiệp",
+        "chống hạn tưới tiêu"
+      ]
+    }
+  ],
+  "content": {
+    "min_words": 1200,
+    "max_words": 1800,
+    "h2_min": 3,
+    "faq_count": 3,
+    "internal_links_min": 3,
+    "title_max_chars": 65,
+    "meta_description_max_chars": 155,
+    "llm_chain": [
+      {
+        "provider": "claude_cli",
+        "model": "sonnet",
+        "note": "Gói Max qua `claude -p` — 0 đồng phí API"
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-5",
+        "note": "Fallback API (cần ANTHROPIC_API_KEY + credit)"
+      },
+      {
+        "provider": "openai",
+        "model": "gpt-4o",
+        "note": "Fallback cuối (cần OPENAI_API_KEY)"
+      }
+    ]
+  },
+  "media": {
+    "image_source": "pexels",
+    "image_style_prompt": "thiết bị công nghiệp và cơ khí hiện đại trong nhà xưởng, ánh sáng công nghiệp, phong cách thực tế chuyên nghiệp",
+    "max_width_px": 1200,
+    "format": "webp",
+    "webp_quality": 82,
+    "images_per_post": 3
+  },
+  "scraper": {
+    "headless": true,
+    "locale": "vi-VN",
+    "google_domain": "google.com.vn",
+    "suggest_variants": [
+      "",
+      " giá",
+      " tốt nhất",
+      " 2026",
+      " nào tốt",
+      " cách chọn"
+    ],
+    "trends_geo": "VN",
+    "trends_hours": 24,
+    "max_keywords_per_category": 10,
+    "request_delay_range_sec": [
+      2,
+      5
+    ]
+  },
+  "logging": {
+    "seo_report_file": "logs/seo_report.log",
+    "app_log_file": "logs/app.log",
+    "level": "INFO"
+  }
+}

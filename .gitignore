@@ -1,0 +1,30 @@
+# ── Secrets & credentials — KHÔNG BAO GIỜ commit ─────────────────────────
+.env
+.env.*
+!.env.example
+!**/.env.example
+multi-site-config.json
+wp-config.php
+
+# ── Python ────────────────────────────────────────────────────────────────
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# ── Node ──────────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Nội dung sinh ra khi chạy (regenerate được, không cần versioning) ─────
+wp-automation/images/
+wp-automation/output/
+wp-automation/logs/
+*.log
+
+# ── OS / editor ───────────────────────────────────────────────────────────
+.DS_Store
+.vscode/
+
+# ── File tài liệu làm việc cá nhân (không phải source code) ───────────────
+*.zip

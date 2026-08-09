@@ -1,0 +1,68 @@
+# Cho phép header Authorization đi qua tới WordPress REST API (LiteSpeed/Apache)
+CGIPassAuth On
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# BEGIN rlrssslReallySimpleSSL rsssl_version[5.1.0]
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+# END rlrssslReallySimpleSSL
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+RewriteRule wp-content/plugins/(.*\.php)$ - [R=404,L]
+RewriteRule wp-content/themes/(.*\.php)$ - [R=404,L]
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+RewriteRule ^wp-content/uploads/.*\.(php|rb|py)$ - [F,L,NC]
+RewriteRule ^wp-config.php$ - [F,L,NC]
+</IfModule>
+
+# END WordPress
+# AMPFORWPLBROWSERCSTART Browser Caching
+<IfModule mod_expires.c>
+ExpiresActive On
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf
+AddType application/x-font-opentype .otf
+AddType application/x-font-woff .woff
+AddType image/svg+xml .svg
+ExpiresByType application/vnd.ms-fontobject "access 1 year"
+ExpiresByType application/x-font-ttf "access 1 year"
+ExpiresByType application/x-font-opentype "access 1 year"
+ExpiresByType application/x-font-woff "access 1 year"
+ExpiresByType image/svg+xml "access 1 year"
+ExpiresByType image/webp "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresByType text/css "access 3 month"
+ExpiresByType text/javascript "access 3 month"
+ExpiresByType application/javascript "access 3 month"
+ExpiresByType application/x-javascript "access 3 month"
+ExpiresByType application/xhtml-xml "access 3 month"
+ExpiresByType application/pdf "access 3 month"
+ExpiresByType application/x-shockwave-flash "access 3 month"
+</IfModule>
+# END Caching AMPFORWPLBROWSERCEND

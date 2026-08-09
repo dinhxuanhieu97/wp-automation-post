@@ -1,0 +1,38 @@
+.is-loading-group.loading {
+    opacity: 0.50 !important;
+    position: relative;
+    pointer-events: none !important;
+}
+
+.is-loading-group.loading::before {
+    -webkit-animation: mona_style_spin 500ms infinite linear;
+    animation: mona_style_spin 500ms infinite linear;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-right-color: transparent!important;
+    border-top-color: transparent!important;
+    content: "";
+    display: block;
+    height: 40px;
+    top: 50%;
+    margin-top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    position: absolute;
+    width: 40px;
+    border: 2px solid var(--primary-color, #03a0e2);
+    z-index: 12;
+}
+
+@keyframes mona_style_spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

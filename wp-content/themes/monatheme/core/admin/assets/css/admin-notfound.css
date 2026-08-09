@@ -1,0 +1,27 @@
+.preview-image {
+    position: relative;
+    padding: 25px;
+    text-align: center;
+}
+
+.preview-image img {
+    width: 100%;
+    max-width: 900px;
+    object-fit: cover;
+}
+
+.mona-row.mona--adminNotfound .field-radio {
+    width: 33.333333%;
+}
+
+@media screen and (max-width: 782px) {
+    .mona-row.mona--adminNotfound .field-radio {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mona-row.mona--adminNotfound .field-radio {
+        width: 100%;
+    }
+}

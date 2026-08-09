@@ -1,0 +1,59 @@
+/* .mona-content #ez-toc-container, */
+.d--nome {
+  display: none;
+}
+
+/*----------------- Style CF7 ---------------- */
+.d--none {
+  display: none;
+}
+.wpcf7 form.invalid .wpcf7-response-output {
+  bottom: -5rem;
+}
+.wpcf7-not-valid-tip,
+form .wpcf7-not-valid-tip {
+  position: absolute !important;
+  font-size: 1.2rem;
+  left: 15px !important;
+  top: unset !important;
+  bottom: -17px;
+  color: #f58021;
+  width: max-content !important;
+  margin: 0;
+  z-index: 1;
+}
+@media screen and (max-width: 374.98px) {
+  .wpcf7-not-valid-tip,
+  form .wpcf7-not-valid-tip {
+    bottom: -13px;
+  }
+}
+
+.footer .footer-main .footer__right .wpcf7-response-output,
+.wpcf7 form .wpcf7-response-output,
+.wpcf7 form .wpcf7-response-output {
+  border: 0;
+  margin: 15px 0;
+  padding: 0;
+  font-size: 12px;
+  position: absolute;
+  margin-top: 1rem;
+}
+
+.wpcf7-spinner {
+  z-index: 11111;
+  position: absolute;
+}
+/* * ------------------ Style mainempty box ---------------- * */
+.m-box-empty {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+span.icon-empty {
+  width: 15rem;
+}

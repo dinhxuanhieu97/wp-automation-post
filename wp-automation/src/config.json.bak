@@ -1,0 +1,101 @@
+{
+  "site": {
+    "base_url": "https://dienmaykimbien.com.vn",
+    "wp_api_base": "https://dienmaykimbien.com.vn/wp-json/wp/v2",
+    "wp_admin_url": "https://dienmaykimbien.com.vn/wp-admin",
+    "sitemap_index": "https://dienmaykimbien.com.vn/sitemap_index.xml",
+    "seo_plugin": "rank_math",
+    "default_post_status": "draft",
+    "language": "vi",
+    "geo": "VN",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "publishing": {
+    "posts_per_category_per_day": 5,
+    "golden_hours": ["06:30", "09:00", "11:30", "15:00", "20:00"],
+    "min_seo_score_to_publish": 80,
+    "publish_if_green": true,
+    "fallback_status_if_not_green": "draft"
+  },
+  "categories": [
+    {
+      "slug": "dien-lanh",
+      "name": "Điện lạnh",
+      "wp_category_id": null,
+      "seed_keywords": ["máy lạnh", "tủ lạnh", "tủ đông", "máy lạnh inverter", "tủ mát", "điều hòa"],
+      "trending_hooks": ["mùa hè nắng nóng 40 độ", "tiết kiệm điện mùa nóng", "chống nồm ẩm"]
+    },
+    {
+      "slug": "dien-gia-dung",
+      "name": "Điện gia dụng",
+      "wp_category_id": null,
+      "seed_keywords": ["quạt điều hòa", "máy lọc không khí", "máy hút bụi", "robot hút bụi", "máy lọc nước", "quạt trần"],
+      "trending_hooks": ["ô nhiễm không khí", "bụi mịn", "dọn nhà đón Tết"]
+    },
+    {
+      "slug": "tivi-am-thanh",
+      "name": "Tivi - Âm thanh",
+      "wp_category_id": null,
+      "seed_keywords": ["tivi", "smart tivi", "loa soundbar", "tivi 65 inch", "loa bluetooth", "dàn karaoke"],
+      "trending_hooks": ["xem World Cup 2026", "chung kết bóng đá", "phim bom tấn mùa hè"]
+    },
+    {
+      "slug": "thiet-bi-nha-bep",
+      "name": "Thiết bị nhà bếp",
+      "wp_category_id": null,
+      "seed_keywords": ["bếp từ", "nồi chiên không dầu", "máy rửa bát", "lò vi sóng", "máy hút mùi", "nồi cơm điện"],
+      "trending_hooks": ["vào bếp cuối tuần", "nấu ăn healthy", "quà tặng tân gia"]
+    },
+    {
+      "slug": "meo-vat-huong-dan",
+      "name": "Mẹo vặt & Hướng dẫn",
+      "wp_category_id": null,
+      "seed_keywords": ["cách vệ sinh máy lạnh", "sửa tủ lạnh không lạnh", "cách dùng nồi chiên không dầu", "vệ sinh máy giặt", "mã lỗi máy giặt", "tiết kiệm điện"],
+      "trending_hooks": ["tự làm tại nhà", "tiết kiệm chi phí sửa chữa"]
+    },
+    {
+      "slug": "the-thao",
+      "name": "Thể thao",
+      "wp_category_id": null,
+      "seed_keywords": ["world cup 2026", "lịch thi đấu world cup", "chung kết world cup", "tivi xem bóng đá", "trực tiếp bóng đá"],
+      "trending_hooks": ["World Cup 2026", "chung kết", "màn hình lớn xem bóng đá"]
+    }
+  ],
+  "content": {
+    "min_words": 1200,
+    "max_words": 1800,
+    "h2_min": 3,
+    "faq_count": 3,
+    "internal_links_min": 3,
+    "title_max_chars": 65,
+    "meta_description_max_chars": 155,
+    "llm_chain": [
+      {"provider": "claude_cli", "model": "sonnet", "note": "Gói Max qua `claude -p` — 0 đồng phí API"},
+      {"provider": "anthropic", "model": "claude-sonnet-4-5", "note": "Fallback API (cần ANTHROPIC_API_KEY + credit)"},
+      {"provider": "openai", "model": "gpt-4o", "note": "Fallback cuối (cần OPENAI_API_KEY)"}
+    ]
+  },
+  "media": {
+    "image_source": "pexels",
+    "image_style_prompt": "thiết bị điện máy hiện đại trong không gian nhà ở, ánh sáng tự nhiên, phong cách nội thất tối giản",
+    "max_width_px": 1200,
+    "format": "webp",
+    "webp_quality": 82,
+    "images_per_post": 2
+  },
+  "scraper": {
+    "headless": true,
+    "locale": "vi-VN",
+    "google_domain": "google.com.vn",
+    "suggest_variants": ["", " giá", " tốt nhất", " 2026", " nào tốt", " cách chọn"],
+    "trends_geo": "VN",
+    "trends_hours": 24,
+    "max_keywords_per_category": 10,
+    "request_delay_range_sec": [2, 5]
+  },
+  "logging": {
+    "seo_report_file": "logs/seo_report.log",
+    "app_log_file": "logs/app.log",
+    "level": "INFO"
+  }
+}
