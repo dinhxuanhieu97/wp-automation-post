@@ -23,7 +23,9 @@ mục 0 của `CLAUDE.md`.
 ```
 .
 ├── CLAUDE.md                  # Tài liệu vận hành đầy đủ cho cả 2 site (nguồn tham chiếu chính)
-├── multi-site-config.json     # Config + credentials 2 site (KHÔNG commit, xem .gitignore)
+├── setup/                      # Hướng dẫn + script cắm tool vào một site WordPress mới
+│   ├── README.md                # Từng bước: Application Password → mu-plugin → test auth → chạy
+│   └── user.php                 # Test nhanh REST API auth (GET /wp/v2/users/me), chỉ cần PHP CLI
 ├── wp-automation/              # Pipeline tự động của Điện Máy Kim Biên (bản THẬT, đang dùng)
 │   ├── src/
 │   │   ├── main.py             # Orchestrator + scheduler (5 khung giờ vàng/ngày)
@@ -32,11 +34,13 @@ mục 0 của `CLAUDE.md`.
 │   │   └── config.json          # Site, danh mục, chuẩn nội dung, khung giờ
 │   ├── requirements.txt
 │   └── README.md                # Chi tiết kiến trúc + hướng dẫn chạy pipeline
-├── wp-content/                 # mu-plugin (fix REST auth) + theme đang dùng trên site
-├── template/                    # Asset/template tham khảo
-├── wordpress-auto-publisher/    # ⚠️ Bản CŨ/bỏ dở — KHÔNG dùng, giữ lại để tham khảo
-└── AutoPostSystems/              # ⚠️ Bản CŨ/bỏ dở — KHÔNG dùng, giữ lại để tham khảo
+├── wp-content/mu-plugins/       # mu-plugin fix REST auth + expose Rank Math meta (xem setup/)
+└── .htaccess                    # Snippet CGIPassAuth cần cho fix REST auth trên LiteSpeed
 ```
+
+> File cấu hình/credential (`multi-site-config.json`, `wp-config.php`, `.env`) và các thư
+> mục không thuộc về tool (theme, bản nháp cũ, tài liệu cá nhân) **không được version-control**
+> — xem `.gitignore`. Chúng vẫn tồn tại trên máy bạn, chỉ không nằm trong repo Git.
 
 ## Bắt đầu nhanh
 
@@ -56,6 +60,10 @@ python src/main.py --once --categories thiet-bi-dien --posts 1
 
 Chi tiết đầy đủ hơn (kiến trúc, biến môi trường, danh mục, lịch chạy) xem
 [`wp-automation/README.md`](./wp-automation/README.md) và mục 2 của `CLAUDE.md`.
+
+Muốn cắm tool vào **một site WordPress khác** (chưa từng cấu hình) — kể cả bước cài
+mu-plugin fix REST auth và test trước khi chạy thật — làm theo
+[`setup/README.md`](./setup/README.md).
 
 ## Bảo mật
 

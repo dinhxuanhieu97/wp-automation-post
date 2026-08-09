@@ -28,3 +28,24 @@ wp-automation/logs/
 
 # ── File tài liệu làm việc cá nhân (không phải source code) ───────────────
 *.zip
+*.pdf
+*.docx
+
+# ── Nội dung/kế hoạch làm việc rời rạc, không phải source của tool ────────
+AUDIT_FINDINGS_SUMMARY.md
+GSC_CONTINGENCY_PLAN.md
+GSC_IMPLEMENTATION_PLAN.md
+GSC_INDEXING_FIX_PLAN.md
+GSC_MONITORING_DAILY_CHECKLIST.md
+SITEMAP_VERIFICATION_SUCCESS.md
+pool-villa-biet-thu-san-vuon.md
+ads.txt
+
+# ── Bản CŨ/bỏ dở — KHÔNG dùng (xem CLAUDE.md mục 2.1) ─────────────────────
+AutoPostSystems/
+wordpress-auto-publisher/
+
+# ── Asset/theme không thuộc về tool tự động hoá ───────────────────────────
+template/
+wp-content/themes/
+wp-automation/src/config.json.bak
